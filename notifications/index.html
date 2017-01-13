@@ -7,7 +7,7 @@
     <body>
         <h1>JavaScript System Notifications</h1>
         <script>
- navigator.serviceWorker.register('sw.js');
+ navigator.serviceWorker.register('notifications/sw.js');
  Notification.requestPermission(function(result) {
        if (result === 'granted') {
                navigator.serviceWorker.ready.then(function(registration) {
