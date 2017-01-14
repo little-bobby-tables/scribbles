@@ -6,7 +6,9 @@ self.addEventListener('message', function (e) {
 });
 
 self.addEventListener('notificationclick', function (e) {
-     /* Android doesn’t close the notification when you click on it (http://crbug.com/463146) */
     e.notification.close();
-    window.open(e.data.url);
+    
+    clients.matchAll().then(function (clients) {
+        clients.openWindow(e.data.url);
+    }
 });
