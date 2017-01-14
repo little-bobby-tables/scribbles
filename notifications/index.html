@@ -3,9 +3,35 @@
     <head>
         <meta charset="utf-8">
         <title>Notifications</title>
+        <style>
+          input {
+            display: block;
+            margin-top: 6px;
+          }
+          
+          .field {
+            margin-bottom: 12px;
+          }
+        </style>
     </head>
     <body>
         <h1>JavaScript System Notifications</h1>
+        <p>
+            <a href="https://developer.mozilla.org/en/docs/Web/API/notification">Notifications API</a> is supported in Chrome and Firefox on Android; in Chrome, Firefox, Opera, and Safari on desktop. (You can find detailed availability information on external resources.)
+        </p>
+        <p>
+            Note that you need to explicitly grant permission to the site to display system notifications.
+        </p>
+        <h3>Okay, let's get started.</h3>
+        <div class="field">
+            <label for="notification-text">I want a notification that says:</label>
+            <input type="text" id="notification-text" placeholder="Hi!">
+        </div>
+        <div class="field">                                                    
+            <label for="notification-url">And when I click it, it takes me to:</label>
+            <input type="text" id="notification-url" placeholder="http://www.google.com/">
+        </div>
+        <button type="button" id="send-notification">Yeah, like that.</button>
         <script>
  navigator.serviceWorker.register('notifications/sw.js');
  Notification.requestPermission(function(result) {
@@ -18,4 +44,3 @@
         </script>
     </body>
 </html>
-
