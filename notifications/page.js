@@ -1,5 +1,9 @@
-function registerWorker() {
-    navigator.serviceWorker.register('notifications/sw.js');
+function setup() {
+    checkCompatibility();
+    registerWorker();
+
+    document.querySelector("#request-permission").addEventListener("click", requestPermission);
+    document.querySelector("#send-notification").addEventListener("click", sendNotification);
 }
 
 function checkCompatibility() {
@@ -8,6 +12,10 @@ function checkCompatibility() {
     } else {
         document.querySelector("#api-unsupported").classList.remove("hidden");
     }
+}
+
+function registerWorker() {
+    navigator.serviceWorker.register('notifications/sw.js');
 }
 
 function requestPermission() {
@@ -26,10 +34,4 @@ function postMessageToWorker(msg) {
     navigator.serviceWorker.controller.postMessage(msg);
 }
 
-document.addEventListener("DOMContentLoaded", function handler(e) {
-    checkCompatibility();
-    registerWorker();
-}, false);
-
-document.querySelector("#request-permission").addEventListener("click", requestPermission);
-document.querySelector("#send-notification").addEventListener("click", sendNotification);
+document.addEventListener("DOMContentLoaded", setup, false);
