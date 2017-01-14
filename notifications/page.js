@@ -15,7 +15,7 @@ function checkCompatibility() {
 }
 
 function registerWorker() {
-    navigator.serviceWorker.register('notifications/sw.js');
+    navigator.serviceWorker.register('sw.js');
 }
 
 function requestPermission() {
