@@ -4,7 +4,7 @@ function sendMessage(msg) {
 }
 
 function registerWorker() {
-    navigator.serviceWorker.register('sw.js');
+    navigator.serviceWorker.register('notifications/sw.js');
 }
 
 function checkCompatibility() {
