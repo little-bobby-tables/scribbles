@@ -1,8 +1,3 @@
-function sendMessage(msg) {
-    /* See https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage */
-    navigator.serviceWorker.controller.postMessage(msg);
-}
-
 function registerWorker() {
     navigator.serviceWorker.register('notifications/sw.js');
 }
@@ -15,20 +10,26 @@ function checkCompatibility() {
     }
 }
 
+function requestPermission() {
+    Notification.requestPermission();
+}
+
+function sendNotification() {
+    var text = document.querySelector("#notification-text").value,
+    url = document.querySelector("#notification-url").value;
+
+    postMessageToWorker({ url: url, text: text });
+}
+
+function postMessageToWorker(msg) {
+    /* See https://developer.mozilla.org/en-US/docs/Web/API/Client/postMessage */
+    navigator.serviceWorker.controller.postMessage(msg);
+}
+
 document.addEventListener("DOMContentLoaded", function handler(e) {
     checkCompatibility();
     registerWorker();
 }, false);
 
-document.querySelector("#request-permission")
-        .addEventListener("click", function handler(e) {
-    Notification.requestPermission();
-});
-
-document.querySelector("#send-notificarions")
-        .addEventListener("click", function handler(e) {
-    var text = document.querySelector("#notification-text").value,
-        url = document.querySelector("#notification-url").value;
-
-    sendMessage({ url: url, text: text });
-});
+document.querySelector("#request-permission").addEventListener("click", requestPermission);
+document.querySelector("#send-notification").addEventListener("click", sendNotification);
