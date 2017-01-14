@@ -15,19 +15,20 @@ function checkCompatibility() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function handler(e)) {
+document.addEventListener("DOMContentLoaded", function handler(e) {
     checkCompatibility();
     registerWorker();
 }, false);
 
-document.querySelector("#request-permission").addEventListener("click", function handler(e) {
+document.querySelector("#request-permission")
+        .addEventListener("click", function handler(e) {
     Notification.requestPermission();
 });
 
-document.querySelector("#send-notificarions").addEventListener("click", function handler(e) {
+document.querySelector("#send-notificarions")
+        .addEventListener("click", function handler(e) {
     var text = document.querySelector("#notification-text").value,
         url = document.querySelector("#notification-url").value;
 
     sendMessage({ url: url, text: text });
-}
-
+});
