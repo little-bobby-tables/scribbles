@@ -10,5 +10,5 @@ self.addEventListener('notificationclick', function (e) {
     
     clients.matchAll().then(function (clients) {
         clients.openWindow(e.data.url);
-    }
+    });
 });
