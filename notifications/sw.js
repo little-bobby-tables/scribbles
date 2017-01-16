@@ -20,8 +20,8 @@ self.addEventListener('notificationclick', function (e) {
             if (client.url === url && 'focus' in client) {
                 return client.focus();
             }
-            if (client.openWindow) {
-                return client.openWindow(url);
+            if (clients.openWindow) {
+                return clients.openWindow(url);
             }
         }
     }));
