@@ -9,18 +9,19 @@ self.addEventListener('message', function (e) {
 
 self.addEventListener('notificationclick', function (e) {
     e.notification.close();
-    console.log(e);
+
+    var url = e.notification.tag;
     
     e.waitUntil(clients.matchAll({
           type: 'window'
     }).then(function(clientList) {
         for (var i = 0; i < clientList.length; i++) {
             var client = clientList[i];
-            if (client.url === e.data.url && 'focus' in client) {
+            if (client.url === url && 'focus' in client) {
                 return client.focus();
             }
             if (client.openWindow) {
-                return client.openWindow('/');
+                return client.openWindow(url);
             }
         }
     }));
