@@ -9,6 +9,7 @@ self.addEventListener('message', function (e) {
 
 self.addEventListener('notificationclick', function (e) {
     e.notification.close();
+    console.log(e);
     
     e.waitUntil(clients.matchAll({
           type: 'window'
