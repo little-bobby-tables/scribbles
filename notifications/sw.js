@@ -21,10 +21,7 @@ self.addEventListener('notificationclick', function (e) {
                 return client.focus();
             }
             if (clients.openWindow) {
-                return clients.openWindow(url).then(function (windowClient) {
-                    /* windowClient is null unless the URL is from the same origin as the service worker. */
-                    if (windowClient) windowClient.focus();
-                });
+                return clients.openWindow(url);
             }
         }
     }));
