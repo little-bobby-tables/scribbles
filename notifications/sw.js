@@ -19,5 +19,6 @@ self.addEventListener('notificationclick', function (e) {
             if (client.openWindow) {
                 return client.openWindow('/');
             }
+        }
     });
 });
