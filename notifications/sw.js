@@ -22,5 +22,5 @@ self.addEventListener('notificationclick', function (e) {
                 return client.openWindow('/');
             }
         }
-    });
+    }));
 });
