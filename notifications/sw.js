@@ -8,7 +8,16 @@ self.addEventListener('message', function (e) {
 self.addEventListener('notificationclick', function (e) {
     e.notification.close();
     
-    clients.matchAll().then(function (clients) {
-        clients.openWindow(e.data.url);
+    e.waitUntil(clients.matchAll({
+          type: 'window'
+    }).then(function(clients) {
+        for (var i = 0; i < clients.length; i++) {
+            var client = clients[i];
+            if (client.url === e.data.url && 'focus' in client) {
+                return client.focus();
+            }
+            if (client.openWindow) {
+                return client.openWindow('/');
+            }
     });
 });
