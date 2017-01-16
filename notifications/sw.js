@@ -14,14 +14,17 @@ self.addEventListener('notificationclick', function (e) {
     
     e.waitUntil(clients.matchAll({
           type: 'window'
-    }).then(function(clientList) {
+    }).then(function (clientList) {
         for (var i = 0; i < clientList.length; i++) {
             var client = clientList[i];
             if (client.url === url && 'focus' in client) {
                 return client.focus();
             }
             if (clients.openWindow) {
-                return clients.openWindow(url);
+                return clients.openWindow(url).then(function (windowClient) {
+                    /* windowClient is null unless the URL is from the same origin as the service worker. */
+                    if (windowClient) windowClient.focus();
+                });
             }
         }
     }));
