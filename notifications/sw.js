@@ -1,3 +1,5 @@
+'use strict';
+
 self.addEventListener('message', function (e) {
     self.registration.showNotification("Notification", {
         body: e.data.text,
@@ -10,9 +12,9 @@ self.addEventListener('notificationclick', function (e) {
     
     e.waitUntil(clients.matchAll({
           type: 'window'
-    }).then(function(clients) {
-        for (var i = 0; i < clients.length; i++) {
-            var client = clients[i];
+    }).then(function(clientList) {
+        for (var i = 0; i < clientList.length; i++) {
+            var client = clientList[i];
             if (client.url === e.data.url && 'focus' in client) {
                 return client.focus();
             }
