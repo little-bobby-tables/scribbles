@@ -32,21 +32,33 @@
                 Doesn't work in your browser, though. Go get yourself something at least 20% cooler, then return.
             </span>
         </p>
-        <h3>Anything the user has to do?</h3>
+        <h3>Any prerequisites?</h3>
         <p>
-            Grant the permission.
-            <button type="button" id="request-permission">See for yourself</button>
+            The user needs to grant a special permission to the website.
         </p>
-        <h3>What's next?</h3>
+        <button type="button" id="request-permission">Do it</button>
+        <h3>Can I see it in action?</h3>
+        <p>
+            Sure thing.
+        </p>
         <div class="field">
-            <label for="notification-text">I want a notification that says:</label>
+            <label for="notification-text">Let's do a notification that says:</label>
             <input type="text" id="notification-text" placeholder="Hi!">
         </div>
         <div class="field">                           
-            <label for="notification-url">And when I click it, it takes me to:</label>
+            <label for="notification-url">And when you click it, it takes you to:</label>
             <input type="text" id="notification-url" placeholder="http://www.google.com/">
         </div>
         <button type="button" id="send-notification">Yeah, like that</button>
+        <h3>Does it have any problems?</h3>
+        <p>
+            It does. Here's what I found:
+        </p>
+        <ul>
+            <li>
+                Clicking the notification doesn't bring the browser to foreground if it's hidden. Try that out.
+            </li>
+        </ul>
     </body>
 </html>
 
