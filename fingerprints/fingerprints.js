@@ -13,7 +13,7 @@ function fingerprint() {
         ["User Agent string", getUA]
     ];
     for (var i = 0; i < sources.length; i++) {
-        displayRow(sources[i][0], sourcees[i][1]());
+        displayRow(sources[i][0], sources[i][1]());
     }
 }
 
