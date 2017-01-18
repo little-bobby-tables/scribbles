@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Fingerprinting</title>
+        <script src="fingerprints.js"></script>
+    </head>
+    <body>
+        <h1>JavaScript Browser Fingerprinting</h1>
+        <p>
+            Just a couple of methods borrowed from <a href="https://github.com/Valve/fingerprintjs2">Fingerprintjs2</a>. In some cases, it may be more feasible to implement the thing from scratch, e.g. to tailor it to specific needs, cut down on the size, further obfuscate the code, or whatever.
+        </p>
+        <button type="button" id="fingerprint">Fingerprint me!</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sources</th>
+                    <th>Detected values</th>
+                </tr>
+            </thead>
+            <tbody id="target">
+            </tbody>
+        </table>
+    </body>
+</html>
+
