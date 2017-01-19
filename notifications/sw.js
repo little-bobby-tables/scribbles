@@ -13,7 +13,7 @@ self.addEventListener('notificationclick', function (e) {
     var url = e.notification.tag;
     
     e.waitUntil(clients.matchAll({
-          type: 'window'
+        type: 'window'
     }).then(function (clientList) {
         for (var i = 0; i < clientList.length; i++) {
             var client = clientList[i];
