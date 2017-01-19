@@ -11,7 +11,8 @@ function setup() {
 function checkCompatibility() {
     if ("Notification" in window) {
         document.querySelector("#api-supported").classList.remove("hidden");
-    } else {
+    }
+    else {
         document.querySelector("#api-unsupported").classList.remove("hidden");
     }
 }
@@ -25,8 +26,8 @@ function requestPermission() {
 }
 
 function sendNotification() {
-    var text = document.querySelector("#notification-text").value,
-        url = document.querySelector("#notification-url").value;
+    const text = document.querySelector("#notification-text").value,
+          url = document.querySelector("#notification-url").value;
 
     postMessageToWorker({ url: url, text: text });
 }
