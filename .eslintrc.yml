@@ -15,8 +15,3 @@ rules:
   object-curly-spacing: ['error', 'always']
   space-infix-ops: 'error'
   space-in-parens: ['error', 'never']
-
-
-
-
-    
